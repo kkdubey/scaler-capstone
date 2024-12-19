@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<InvariantGlobalization>false</InvariantGlobalization>
+		<SpaRoot>..\scaler.client</SpaRoot>
+		<SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+		<SpaProxyServerUrl>https://localhost:4200</SpaProxyServerUrl>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Authorization\**" />
+	  <Content Remove="Authorization\**" />
+	  <EmbeddedResource Remove="Authorization\**" />
+	  <None Remove="Authorization\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Services\UserIdAccessor.cs" />
+	  <Compile Remove="Services\Utilities.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+		<PackageReference Include="OpenIddict.AspNetCore" Version="5.8.0" />
+		<PackageReference Include="OpenIddict.EntityFrameworkCore" Version="5.8.0" />
+		<PackageReference Include="OpenIddict.Quartz" Version="5.8.0" />
+		<PackageReference Include="Quartz.Extensions.Hosting" Version="3.13.1" />
+		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.SpaProxy">
+			<Version>8.*-*</Version>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Scaler.Core\Scaler.Core.csproj" />
+		<ProjectReference Include="..\scaler.client\scaler.client.esproj">
+			<ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+		</ProjectReference>
+		<ProjectReference Include="..\Scaler.ServiceBusMessaging\Scaler.ServiceBusMessaging.csproj" />
+		<ProjectReference Include="..\Scaler.ServiceDefaults\Scaler.ServiceDefaults.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Services\Email\*.template">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Logs\" />
+	</ItemGroup>
+
+</Project>

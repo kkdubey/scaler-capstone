@@ -1,0 +1,30 @@
+/* Reduced font size with adjusted line-height */
+.reduced-font {
+  line-height: 1.4;
+  font-size: 0.9em; /* Optional: adjust for reduced font size */
+}
+
+/* Container with background features */
+.bg-features {
+  position: relative;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #f4f4f4; /* Optional: add background color for clarity */
+}
+
+/* Features list styling */
+.bg-features ul {
+  position: relative;
+  list-style: none; /* Remove default list bullets */
+  padding-left: 0; /* Optional: remove left padding */
+}
+
+/* Logo styling */
+.bg-features .logo {
+  font-size: 200px;
+  position: absolute;
+  top: 2rem;
+  right: 10px;
+  z-index: 10; /* Ensure logo is above other content */
+}
